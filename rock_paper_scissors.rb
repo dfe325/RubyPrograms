@@ -39,15 +39,15 @@ end
 
 if player_value == 0 && computer_value == 1
   statement = "Paper beats rock. Computer wins this round."
-elsif player_value == 0 && computer_value == 2
+elsif player_value == 0  
   statement = "Rock beats scissors. Player wins this round."
 elsif player_value == 1 && computer_value == 2
   statement = "Scissors beats paper. Computer wins this round."
-elsif player_value == 1 && computer_value == 0
+elsif player_value == 1  
   statement = "Paper beats rock. Player wins this round."
 elsif player_value == 2 && computer_value == 0
   statement = "Rock beats scissors. Computer wins this round."
-elsif player_value == 2 && computer_value == 1
+elsif player_value == 2 
   statement = "Scissors beats paper. Player wins this round."
 else statement = nil.to_s
 end
