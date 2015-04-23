@@ -1,6 +1,3 @@
-#exercises involving compound data structures. 
-#data structures and questions provided by Launch Academy Ignition
-
 people =
 
 {
@@ -13,7 +10,7 @@ people =
           "Jess"
       ]
   },
-           "Ike Haag" => {
+      "Ike Haag" => {
          "phone" => "(661) 663-8352",
        "company" => "Carter Inc",
       "children" => [
@@ -68,10 +65,16 @@ people.each do |key, value|
   end
 end
 puts
-    # if people.keys.values.has_key?("children")
-    #   print people.keys
-    # end
 # What are the names of the people who do not have children?
+
+puts "The people without children are: "
+
+ people.each do |key, value|
+   unless value.has_key?("children")
+     puts key
+   end
+  end
+
 # What is Brian Heller's child's name?
 puts "Brian Heller's child's name is #{people["Brian Heller"]["children"]}."
 puts
@@ -81,5 +84,3 @@ puts "Maryse Johns' child's first name is #{people["Maryse Johns"]["children"].f
 puts
 people["Dr. Adela DuBuque"]["children"] = "Tomas"
 puts "Dr. Adela DuBuque's new child is: " + people["Dr. Adela DuBuque"]["children"].to_s
-
-
