@@ -15,8 +15,8 @@ sets_of_people =
              "phone" => "1-467-852-4981",
            "company" => "Kemmer Inc",
           "children" => [
-              "Sydney"
           ]
+              "Sydney"
       },
           "Savanah Toy" => {
              "phone" => "440-632-0287",
@@ -88,7 +88,3 @@ puts "The people in the first set that have an m in their company names are: "
       puts "#{key}"
     end
   end
-
-  # if sets_of_people[0][key]["company"].include?("m")
-  #   puts sets_of_people[0].keys.to_s
-  # end
