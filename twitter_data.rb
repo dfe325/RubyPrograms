@@ -485,7 +485,47 @@ max = 0
 max = followers.max { |a, b| a <=> b }
 puts max
  
- 
+friends = Array.new
+twitter_data.each_index do |x|
+  twitter_data[x].each do |key, value|
+    friends << twitter_data[x][key]["number of friends"]
+  end
+end
+
+max = 0
+max = friends.max { |a, b| a <=> b }
+
+#5) User with the most followers
+
+ followers = Array.new
+ twitter_data.each_index do |x|
+   twitter_data[x].each do |key, value|
+     followers << twitter_data[x][key]["number of followers"].to_i
+   end
+ end
+
+ max = 0
+ max = followers.max { |a, b| a <=> b }
+
+ twitter_data.each_index do |x|
+   twitter_data[x].each do |key, value|
+     if twitter_data[x][key]["number of followers"].to_i == max
+       puts "The user with the most followers is #{twitter_data[x].keys}"
+     end
+   end
+end
+
+
+
+#6) User with the most friends
+
+twitter_data.each_index do |x|
+  twitter_data[x].each do |key, value|
+    if twitter_data[x][key]["number of friends"].to_i == max
+      puts "The user with the most followers is #{twitter_data[x].keys}"
+    end
+  end
+end
  
  
  
