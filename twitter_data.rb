@@ -431,40 +431,62 @@ def twitter_data
     "number of tweets"=>222,
     "location"=>"Boston, MA"}}]
 end
-#1)
-# twitter_data.each_index do |x|
-#   twitter_data[x].each do |key, value|
-#     if twitter_data[x][key]["description"] == nil
-#       puts "#{key} : N/A"
-#     else
-#       puts "#{key} : #{twitter_data[x][key]["description"]}"
-#     end
-#   end
-# end
-#2)
-#
-# twitter_data.each_index do |x|
-#   twitter_data[x].each do |key, value|
-#     puts "#{key}: #{twitter_data[x][key]["number of followers"]}"
-#   end
-# end
-#3)
-#
-# twitter_data.each_index do |x|
-#   twitter_data[x].each do |key, value|
-#     puts "#{key}\'s latest tweet was #{twitter_data[x][key]["latest tweet"].length} characters long."
-#   end
-# end
 
-#4)
-#
-# total_characters = 0
-#
-# twitter_data.each_index do |x|
-#   twitter_data[x].each do |key, value|
-#     twitter_data[x][key]["last twenty tweets"].each_index do |y|
-#       total_characters += twitter_data[x][key]["last twenty tweets"][y].size
-#     end
-#     puts "#{key} used #{total_characters} characters in their last twenty tweets."
-#   end
-# end
+# 1) puts name: description
+twitter_data.each_index do |x|
+   twitter_data[x].each do |key, value|
+     if twitter_data[x][key]["description"] == nil
+       puts "#{key} : N/A"
+     else
+       puts "#{key} : #{twitter_data[x][key]["description"]}"
+     end
+   end
+ end
+ 
+#2) Number of followers
+
+ twitter_data.each_index do |x|
+   twitter_data[x].each do |key, value|
+     puts "#{key}: #{twitter_data[x][key]["number of followers"]}"
+   end
+ end
+ 
+#3) Character length of latest tweet
+
+ twitter_data.each_index do |x|
+   twitter_data[x].each do |key, value|
+     puts "#{key}\'s latest tweet was #{twitter_data[x][key]["latest tweet"].length} characters long."
+   end
+ end
+
+#4) Total characters in last 20 tweets
+
+ total_characters = 0
+
+ twitter_data.each_index do |x|
+   twitter_data[x].each do |key, value|
+     twitter_data[x][key]["last twenty tweets"].each_index do |y|
+       total_characters += twitter_data[x][key]["last twenty tweets"][y].size
+     end
+     puts "#{key} used #{total_characters} characters in their last twenty tweets."
+   end
+ end
+ 
+ #5) Most number of followers
+ 
+followers = Array.new
+twitter_data.each_index do |x|
+  twitter_data[x].each do |key, value|
+    followers << twitter_data[x][key]["number of followers"].to_i
+  end
+end
+
+max = 0
+max = followers.max { |a, b| a <=> b }
+puts max
+ 
+ 
+ 
+ 
+ 
+ 
