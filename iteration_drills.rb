@@ -109,7 +109,6 @@ puts "\nThere are #{sum} characters in the names in array."
 # * How many names in `array` are less than 5 characters long?
 puts "#{array.count{ |x| x.length < 5 }} names in array are less than 5 characters long."
 
-
 # * How many names in `array` end in a vowel?
 sum = 0
 array.each do |element|
@@ -157,7 +156,6 @@ best_records = {
 
 puts "The artists listed are: #{best_records.keys}\n\n"
 
-
 # * How would you print out all the names of the albums?
 
 puts "The album names are: #{best_records.values}\n\n"
@@ -165,6 +163,13 @@ puts "The album names are: #{best_records.values}\n\n"
 # * Which artist has the longest name?
 
 # * How would you change all the album titles for every artist to `Greatest Hits`?
+new_best_records = { }
+
+best_records.each do |key, value|
+  new_best_records[key] = "Greatest Hits"
+end
+
+puts new_best_records
 
 # * How would you delete a key-value pair if the artist's name ends in a vowel?
 
@@ -176,8 +181,6 @@ best_records.each do |key, value|
 end
 
 puts "All artists whose names end in a vowel eliminated: #{best_records.to_s}"
-
-
 
 ages = {"Arch"=>89, "Gretchen"=>93, "Simone"=>12, "Daija"=>96, "Alivia"=>22, "Serena"=>28, "Alek"=>3, "Lula"=>24, "Christian"=>62, "Darryl"=>47, "Otha"=>32, "Evalyn"=>44, "Lincoln"=>27, "Rebeca"=>99, "Beatrice"=>99, "Kelton"=>10, "Zachary"=>18, "Aurelie"=>91, "Dell"=>71, "Lisandro"=>22}
 
