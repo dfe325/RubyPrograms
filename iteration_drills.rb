@@ -161,7 +161,14 @@ puts "The artists listed are: #{best_records.keys}\n\n"
 puts "The album names are: #{best_records.values}\n\n"
 
 # * Which artist has the longest name?
+best_array = Array.new
 
+puts best_array
+best_array << best_records.keys
+best_array = best_array[0].max { |x,y| x.length <=> y.length }
+
+puts best_array
+puts
 # * How would you change all the album titles for every artist to `Greatest Hits`?
 new_best_records = { }
 
@@ -265,11 +272,28 @@ people =
 # Write Ruby code to find out the answers to the following questions:
 
 # * How would you print out all the names of `people`?
-
-
+puts "The names in people are: "
+puts people.keys
+puts
 # * How would you print out all the names of `people` and which company they work for?
+people.each do |key,value|
+  puts "#{key} works for #{people[key]["company"]}"
+end
+puts
 # * What are the names of all the children of everyone in `people`?
+puts "All the children of everyone in 'people' are: "
+puts "The children of everyone in 'people' are: "
+people.each do |key,value|
+  puts people[key]['children']
+end
+
 # * What are the names of all the companies that people work for?
+puts
+puts "The names of all the companies are: "
+people.each do |key,value|
+  puts "#{people[key]['company']}"
+end
+
 # * How would you convert all the phone numbers to the same standard (pick one)?
 
 
@@ -348,5 +372,31 @@ people.each do |element|
 end
 
 # * How would you create a new hash called `phone_numbers` that has a key of a name and value of a phone number in `people`?
+
+phone_numbers = Hash.new
+
+phone_numbers["name"] = "phone number"
+
+people.each_index do |element|
+  people[element].merge!(phone_numbers)
+
+end
+
 # * How would you create a new hash called `employers` that has a key of a name and a value of a company name in `people`?
+
+employers = Hash.new
+employers["name"] = "company name"
+
+people.each_index do |element|
+  people[element].merge!(phone_numbers)
+end
+
 # * How would you create a new hash called `children_count` that has a key of a name and a value of the number of children a person has?
+
+children_count = Hash.new
+
+children_count["name"] = "number of children"
+
+people.each_index do |element|
+  people[element].merge!(children_count)
+end
