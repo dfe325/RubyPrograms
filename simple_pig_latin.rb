@@ -6,23 +6,20 @@ def translate(sentence)
 
   sentence.each do |word|
 
-    if word.index(/[aeiou]/) == 0
+    if /[aeiou]/.match(word[0])
       word << "way"
+    elsif /[aeiou]/.match(word[1])
+      word = word << word.slice(0) << "ay"
+      word = word.reverse.chop!.reverse
     else
-      word << word[0] << "ay"
-      word[0] = ""
+      word = word << word.slice(0..1) << "ay"
+      word = word.reverse.chop!.chop!.reverse
     end
 
-    translated_sentence << word << " "  #puts the changed word back into string format
+    translated_sentence << word << " "
 
   end
 
-  translated_sentence
+  translated_sentence.chomp
+
 end
-
-
-puts translate("happy") #appyhay
-puts
-puts translate("duck") #uckday
-puts
-puts translate("egg") #eggway
