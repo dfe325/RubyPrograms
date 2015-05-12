@@ -6,13 +6,13 @@ def translate(sentence)
 
   sentence.each do |word|
 
-    if /[aeiou]/.match(word[0])
+    if (/[aeiou]/ =~ word) == 0
       word << "way"
-    elsif /[aeiou]/.match(word[1])
-      word = word << word.slice(0) << "ay"
+    elsif (/[aeiou]/ =~ word) == 1
+      word << word.slice(0) << "ay"
       word = word.reverse.chop!.reverse
-    else
-      word = word << word.slice(0..1) << "ay"
+    elsif (/[aeiou]/ =~ word) == 2
+      word << word.slice(0..1) << "ay"
       word = word.reverse.chop!.chop!.reverse
     end
 
@@ -20,6 +20,5 @@ def translate(sentence)
 
   end
 
-  translated_sentence.chomp
-
+  translated_sentence.strip
 end
